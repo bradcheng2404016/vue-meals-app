@@ -51,7 +51,7 @@ const routes = [
     component: GuestLayout
   },
   {
-    path: '/downloadFile',
+    path: '/download',
     component: DownloadLayout
   }
 ];

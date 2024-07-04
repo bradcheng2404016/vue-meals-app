@@ -7,6 +7,10 @@ import * as filters from './filters'
 
 
 const app = createApp(App);
+
+app.config.globalProperties.console = console;
+
 app.use(router).use(store).mount("#app");
 
-app.config.globalProperties.$filters = filters
+app.config.globalProperties.$filters = filters;
+
