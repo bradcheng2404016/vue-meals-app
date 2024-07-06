@@ -1,9 +1,8 @@
 <template>
-  
+
 </template>
 
 <script setup>
-  // <button @click="handleClick">Click me</button>
   let url = new URL(window.location.href);
   let fileType = url.searchParams.get("fileType");
   let fileId = url.searchParams.get("fileId");

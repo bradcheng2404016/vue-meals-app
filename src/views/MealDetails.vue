@@ -39,13 +39,14 @@
           </template>
         </ul>
       </div>
-      <div class="mt-4">
+      <div class="mt-10" >
         <YouTubeButton :href="meal.strYoutube" />
-        <a
-          :href="meal.strSource"
+        <DownloadButton :href="meal.download" />        
+      </div>
+      <div class="mt-10"> 
+        <a :href="meal.strSource"
           target="_blank"
-          class="ml-3 px-3 py-2 rounded border-2 border-transparent text-indigo-600 transition-colors"
-        >
+          class="rounded border-2 border-transparent text-indigo-600 transition-colors" >
           View Original Source
         </a>
       </div>
@@ -60,14 +61,18 @@ import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router';
 import axiosClient from '../axiosClient';
 import YouTubeButton from '../components/YouTubeButton.vue';
+import DownloadButton from '../components/DownloadButton.vue';
 
 const route = useRoute();
 const meal = ref({})
 
 onMounted(() => {
   axiosClient.get(`lookup.php?i=${route.params.id}`)
-    .then(({ data }) => {
+    .then(({ data }) => {      
       meal.value = data.meals[0] || {}
+      meal.value.download = "http://35.201.143.205:8080/downloadFile?fileType=MessageUpload&fileId=1508&hash=11e70a066e13993684fc2cdb378611b470e80ca2aff3ec4f8f81d39d29eff2db";
+      // meal.value.download = "https://rdss.moi.gov.tw/MND_NCA/downloadSysFileAction.do?fileID=2299";
+      // debugger;
     })
 })
 
