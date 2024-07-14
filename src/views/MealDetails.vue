@@ -1,4 +1,4 @@
-<template>
+<template>  
   <div class="max-w-[800px] mx-auto p-8">
     <h1 class="text-4xl font-bold mb-5 text-orange-500">{{ meal.strMeal }}</h1>
     <img :src="meal.strMealThumb" :alt="meal.strMeal" class="max-w-[100%]">
@@ -47,15 +47,15 @@
         <DownloadButton :href="meal.download" />
       </div>
       <div>
-        <div class="flex items-center gap-2 py-3 cursor-pointer  text-indigo-600 hover:text-red-500 bg-slate-100 " >
+        <div class="flex items-center gap-2 py-3 cursor-pointer  text-indigo-600 hover:text-red-500 bg-slate-100" >
           <a :href="meal.strSource" target="_blank" class="">
             View Original Source
           </a>
         </div>
-        <div class="flex items-center gap-2 py-3 cursor-pointer  text-indigo-600 hover:text-red-500 bg-slate-200 " >          
-          <div>
+        <div class="" >          
+          <div class="text-indigo-600 hover:text-red-500" >
             <a href="https://www.heidisql.com/installers/HeidiSQL_12.8.0.6908_Setup.exe">
-                <button>Remove City</button>
+              <button>Remove City</button>
             </a>
           </div>
         </div>
@@ -68,7 +68,6 @@
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router';
 import axiosClient from '../axiosClient';
-import axiosClient2 from '../axiosClient2';
 import YouTubeButton from '../components/YouTubeButton.vue';
 import DownloadButton from '../components/DownloadButton.vue';
 
@@ -85,11 +84,5 @@ onMounted(() => {
       // debugger;
     })
 })
-
-const removeCity = () => {
-  // const cities = JSON.parse(localStorage.getItem("savedCities"));
-  console.log('AAAAAA');
-  
-};
 
 </script>
